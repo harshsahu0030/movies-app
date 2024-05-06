@@ -1,0 +1,96 @@
+.login_code_section {
+  height: 100%;
+  width: 100%;
+
+  background-position: center;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.8)
+  );
+
+  > img {
+    min-height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  > .wrapper {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    @include flex(column, start, center);
+    color: $text-white-color;
+
+    > .container {
+      min-height: 100%;
+      width: 40%;
+      margin: 3vmax 0 5vmax 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 3vmax;
+      @include flex(column, start, start, 1.5vmax);
+
+      > h2 {
+        font-size: 2rem;
+      }
+
+      > button {
+        width: 100%;
+        @include button(1rem, 0.5vmax, 0);
+        color: $text-white-color;
+        background-color: $bg-gray-color;
+      }
+
+      > .signin-btn {
+        background-color: $bg-red-color;
+      }
+
+      > span {
+        width: 100%;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      > p {
+        font-size: 0.9rem;
+
+        > a {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+//tablet ------------------
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+  .login_code_section {
+    > .wrapper {
+      width: 95%;
+
+      > .container {
+        width: 60%;
+        margin: 15vmax 0;
+      }
+    }
+  }
+}
+
+//mobile ------------------
+@media (max-width: 800px) {
+  .login_code_section {
+    > .wrapper {
+      width: 95%;
+
+      > .container {
+        width: 90%;
+        margin: 15vmax 0;
+
+      }
+    }
+  }
+}

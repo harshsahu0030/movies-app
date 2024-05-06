@@ -1,0 +1,64 @@
+@mixin flex($dir: row, $justify: start, $align: start, $gap: 0) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin grid($col: 1fr, $row: 1fr, $gap: 0) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-template-rows: $row;
+  gap: $gap;
+}
+
+@mixin button($size: 1rem, $pVer: 0, $pHor: 0, $gap: 0) {
+  @include flex(row, center, center);
+  font-size: $size;
+  border-radius: 5px;
+  padding: $pVer $pHor;
+  gap: $gap;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+@mixin modernHeading(
+  $dir: column,
+  $justify: center,
+  $align: center,
+  $gap: 1vmax
+) {
+  height: 100%;
+  width: 100%;
+  @include flex($dir, $justify, $align, $gap);
+  color: $text-white-color;
+
+  > h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  > h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+
+  > h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+  }
+}

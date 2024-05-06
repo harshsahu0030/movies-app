@@ -1,0 +1,29 @@
+.loader_section {
+  height: 0.3vmax;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+
+  > div {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 30%;
+    background-color: $bg-red-color;
+    animation: 2s linear 0s infinite running slider;
+  }
+}
+
+@keyframes slider {
+  0% {
+    left: -10%;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 100%;
+  }
+}

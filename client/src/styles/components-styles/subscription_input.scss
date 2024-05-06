@@ -1,0 +1,28 @@
+.subscription_input_section {
+  @include flex(row, start, center, 0.5vmax);
+  width: 60%;
+  margin: 0 auto;
+
+  > button {
+    @include button(1rem, 1vmax, 1vmax, 0.5vmax);
+    text-wrap: nowrap;
+    background-color: $bg-red-color;
+    color: $text-white-color;
+  }
+}
+
+//tablet ------------------
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+  .subscription_input_section {
+    @include flex(row, start, center, 1vmax);
+    width: 80%;
+  }
+}
+
+//mobile ------------------
+@media (max-width: 800px) {
+  .subscription_input_section {
+    width: 80%;
+    @include flex(column, center, center, 2vmax);
+  }
+}

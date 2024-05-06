@@ -1,0 +1,75 @@
+//fonts -- Poppins
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+//features
+@import "./colors";
+@import "./mixin";
+
+//pages
+@import "./pages-styles/home";
+@import "./pages-styles/login";
+@import "./pages-styles/login_code";
+@import "./pages-styles/signup";
+@import "./pages-styles/otp_verification";
+@import "./pages-styles/forgot_password";
+@import "./pages-styles/main";
+
+//components
+@import "./components-styles/home_section01";
+@import "./components-styles/language";
+@import "./components-styles/home_navbar";
+@import "./components-styles/subscription_input";
+@import "./components-styles/home_features";
+@import "./components-styles/asked_que";
+@import "./components-styles/footer";
+@import "./components-styles/loader";
+
+//media query
+
+// //tablet ------------------
+// @media only screen and (min-width: 801px) and (max-width: 1024px) {
+// }
+
+// //mobile ------------------
+// @media (max-width: 800px) {
+// }
+
+//body
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+}
+
+.input {
+  width: 100%;
+  padding: 1vmax;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid $bg-gray-color;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 1rem;
+  color: $text-white-color;
+
+  &:focus {
+    border: 1px solid $bg-white-color;
+  }
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999 !important;
+  background-color: #cccccc !important;
+  color: #666666 !important;
+  cursor: wait !important;
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,13 @@
+.language-section {
+  @include flex(row, center, center);
+
+  > select {
+    padding: 0.5vmax 1vmax;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    border-radius: 5px;
+    background-color: $bg-light-black-color;
+    color: $text-white-color;
+    font-weight: 500;
+  }
+}
