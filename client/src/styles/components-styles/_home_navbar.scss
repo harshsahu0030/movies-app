@@ -1,7 +1,7 @@
 .home_navbar_section {
   width: 100%;
   height: 15vh;
-  padding: 0.5vmax 0;
+  padding: 0.5vmax;
   @include flex(row, space-between, center);
 
   > img {

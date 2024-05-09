@@ -1,13 +1,11 @@
 import Sidebar from "../components/Sidebar";
 
-const Main = () => {
-  console.log(import.meta.env.VITE_TEST);
+const Movies = () => {
   return (
     <div className="main_section">
       <div className="wrapper">
         <div className="left">
           <Sidebar />
-          <h1></h1>
         </div>
         <div className="right"></div>
       </div>
@@ -15,4 +13,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Movies;

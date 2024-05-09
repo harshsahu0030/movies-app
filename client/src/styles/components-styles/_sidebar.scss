@@ -1,0 +1,81 @@
+.sidebar_section {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 1.5vmax 0;
+  @include flex(column, center, center);
+  border-right: 3px solid;
+  border-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      $bg-gray-color,
+      $bg-gray-color,
+      $bg-gray-color,
+      rgba(0, 0, 0, 0)
+    )
+    1 100%;
+
+  > img {
+    width: 80%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  > ul {
+    height: 100%;
+    width: 100%;
+    @include flex(column, center, center, 1vmax);
+    list-style-type: none;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0.5em;
+      height: 0.5em;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    > li {
+      padding: 0.8vmax 1vmax;
+      width: 100%;
+      text-align: center;
+
+      > svg {
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 200ms ease-in-out;
+
+        &:hover {
+          color: $text-red-color;
+        }
+      }
+    }
+
+    > .active {
+      border-left: 5px solid$text-red-color;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.1),
+        rgba(0, 0, 0, 0)
+      );
+
+      > svg {
+        color: $text-red-color;
+      }
+    }
+  }
+}

@@ -13,6 +13,11 @@
 @import "./pages-styles/otp_verification";
 @import "./pages-styles/forgot_password";
 @import "./pages-styles/main";
+@import "./pages-styles/account";
+@import "./pages-styles/search";
+@import "./pages-styles/movies";
+@import "./pages-styles/series";
+@import "./pages-styles/wishlist";
 
 //components
 @import "./components-styles/home_section01";
@@ -23,6 +28,7 @@
 @import "./components-styles/asked_que";
 @import "./components-styles/footer";
 @import "./components-styles/loader";
+@import "./components-styles/sidebar";
 
 //media query
 
@@ -43,6 +49,12 @@
   font-style: normal;
 }
 
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: $bg-black-color;
+}
+
 a {
   color: inherit;
 }
@@ -60,6 +72,12 @@ a {
   &:focus {
     border: 1px solid $bg-white-color;
   }
+}
+
+.form-error {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $text-red-color;
 }
 
 button:disabled,
