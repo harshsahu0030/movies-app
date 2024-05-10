@@ -106,7 +106,7 @@ const OptVerification = () => {
 
   return (
     <>
-      {loading ? <Loader /> : ""}
+      {loading || otpLoading ? <Loader /> : ""}
       <div className="login_code_section">
         <img src={BgImage} alt="backgorund-image" />
         <div className="wrapper">

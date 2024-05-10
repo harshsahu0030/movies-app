@@ -1,0 +1,28 @@
+.loader_component {
+  height: 100%;
+  width: 100%;
+  background-color: $bg-light-black-color;
+  position: relative;
+  overflow: hidden;
+
+  > div {
+    height: 100%;
+    width: 5%;
+    background: linear-gradient(to bottom, transparent, gray, transparent);
+    position: absolute;
+    top: 0;
+    left: 30%;
+    filter: blur(10px);
+    animation: 1.5s linear 1s infinite running move;
+    rotate: 10deg;
+  }
+}
+
+@keyframes move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
