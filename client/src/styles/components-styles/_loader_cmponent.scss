@@ -4,17 +4,39 @@
   background-color: $bg-light-black-color;
   position: relative;
   overflow: hidden;
+  border-radius: 10px;
 
-  > div {
+  > .image {
     height: 100%;
-    width: 5%;
+    width: 2%;
     background: linear-gradient(to bottom, transparent, gray, transparent);
     position: absolute;
     top: 0;
     left: 30%;
     filter: blur(10px);
-    animation: 1.5s linear 1s infinite running move;
-    rotate: 10deg;
+    animation: 1.5s ease-in-out 0s infinite running move;
+  }
+
+  > .content {
+    height: 100%;
+    width: 100%;
+    padding: 2vmax;
+    @include flex(column, start, start, 1vmax);
+
+    > div:nth-child(1) {
+      flex: 5;
+      width: 100%;
+      border-radius: 10px;
+      background-color: rgb(39, 39, 39);
+    }
+
+    > div:nth-child(2),
+    > div:nth-child(3) {
+      flex: 1;
+      width: 100%;
+      border-radius: 10px;
+      background-color: rgb(39, 39, 39);
+    }
   }
 }
 

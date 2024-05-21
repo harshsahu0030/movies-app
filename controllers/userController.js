@@ -1,9 +1,11 @@
+import { isNullOrUndefined } from "util";
 import OtpModel from "../models/otpModel.js";
 import UserModel from "../models/userModel.js";
 import { catchAsyncErrors } from "../utils/catchAsyncErrors.js";
 import ErrorHandler from "../utils/errorHandler.js";
 import { generateOTP } from "../utils/generateOtp.js";
 import { sendMail } from "../utils/sendMail.js";
+import crypto from "crypto";
 
 //--------------------------------------------------
 //check user
@@ -328,6 +330,7 @@ export const forgotPasswordController = catchAsyncErrors(
     }
 
     const otpNumber = await generateOTP();
+    const resetToken = await user.generateResetToken();
 
     const subject = "Email Verification for Lgin in Netflix";
 
@@ -344,7 +347,7 @@ export const forgotPasswordController = catchAsyncErrors(
     return res.status(200).json({
       success: true,
       message: `OTP successfully send to email - ${req.body.email}`,
-      otp: user._id,
+      otp: resetToken,
     });
   }
 );
@@ -353,7 +356,17 @@ export const forgotPasswordController = catchAsyncErrors(
 //forgot password verified controller
 export const forgotPasswordVerifiedController = catchAsyncErrors(
   async (req, res, next) => {
-    const user = await UserModel.findById(req.params.id);
+    // creating token hash
+    const resetToken = crypto
+      .createHash("sha256")
+      .update(req.params.id)
+      .digest("hex");
+
+    const user = await UserModel.findOne({
+      resetToken,
+      resetTokenExpire: { $gt: Date.now() },
+    });
+
     const { otp } = req.body;
 
     if (!user) {
@@ -381,7 +394,7 @@ export const forgotPasswordVerifiedController = catchAsyncErrors(
     return res.status(200).json({
       success: true,
       message: `User Verified`,
-      otp: user._id,
+      otp: user.resetToken,
     });
   }
 );
@@ -390,7 +403,17 @@ export const forgotPasswordVerifiedController = catchAsyncErrors(
 //reset password controller
 export const resetPasswordController = catchAsyncErrors(
   async (req, res, next) => {
-    const user = await UserModel.findById(req.params.id);
+    // creating token hash
+    const resetToken = crypto
+      .createHash("sha256")
+      .update(req.params.id)
+      .digest("hex");
+
+    const user = await UserModel.findOne({
+      resetToken,
+      resetTokenExpire: { $gt: Date.now() },
+    });
+
     const { newPassword, confirmPassword } = req.body;
 
     if (newPassword !== confirmPassword) {
@@ -404,6 +427,8 @@ export const resetPasswordController = catchAsyncErrors(
     }
 
     user.password = confirmPassword;
+    user.resetToken = null;
+    user.resetTokenExpire = new Date(Date.now());
 
     await user.save();
 

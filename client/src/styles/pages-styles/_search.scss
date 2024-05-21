@@ -1,0 +1,126 @@
+.search_section {
+  min-height: 100vh;
+  width: 100%;
+  color: $text-white-color;
+
+  > .wrapper {
+    min-height: 100vh;
+    width: 100%;
+    @include flex(row, start, start, 0.5vmax);
+
+    > .left {
+      max-height: 100vh;
+      width: 6%;
+      position: relative;
+    }
+
+    > .right {
+      min-height: 100vh;
+      width: 94%;
+      @include grid(1fr 2fr, 1fr, 1vmax);
+
+      > .left {
+        height: 100%;
+        width: 100%;
+        padding: 2vmax 1vmax;
+        background-color: $bg-light-black-color;
+
+        h2 {
+          font-size: 2rem;
+          font-weight: 600;
+          border-bottom: 1px solid $bg-gray-color;
+          padding: 1vmax 0;
+        }
+
+        > .input_container {
+          width: 100%;
+          @include flex(row, center, start, 0.5vmax);
+
+          > button {
+            @include button(1rem, 1vmax, 1vmax);
+            color: $text-white-color;
+            background-color: $bg-red-color;
+          }
+        }
+
+        > .search_links {
+          width: 100%;
+          @include flex(row, start, center, 0.5vmax);
+          font-size: 1.2rem;
+          padding: 1vmax;
+          border-bottom: 1px solid $bg-gray-color;
+          cursor: pointer;
+          transition: all 200ms ease-in-out;
+          color: $text-lighter-gray-color;
+
+          &:hover {
+            background-color: $text-gray-color;
+          }
+        }
+      }
+
+      > .right {
+        height: 100%;
+        width: 100%;
+        padding: 2vmax 1vmax;
+
+        > h2 {
+          font-size: 2rem;
+          font-weight: 600;
+          border-bottom: 1px solid $bg-gray-color;
+          padding: 1vmax 0;
+        }
+
+        > .user_data {
+          height: 100%;
+          width: 100%;
+          @include flex(row, center, center);
+
+          > table {
+            font-size: 1.2rem;
+            > tbody {
+              > tr {
+                > td {
+                  padding: 1vmax;
+                }
+                td:nth-child(1) {
+                  font-weight: 500;
+                  color: $text-lighter-gray-color;
+                }
+                td:nth-child(2) {
+                  font-weight: 600;
+                  color: $text-white-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//tablet ------------------
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+  .search_section {
+    > .wrapper {
+      > .left {
+        width: 10%;
+      }
+      > .right {
+        @include grid(repeat(2, 1fr), 1fr, 1vmax);
+      }
+    }
+  }
+}
+
+//mobile ------------------
+@media (max-width: 800px) {
+  .search_section {
+    > .wrapper {
+      > .right {
+        @include grid(1fr, 1fr, 1vmax);
+      }
+    }
+  }
+}

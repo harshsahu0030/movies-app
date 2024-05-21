@@ -1,5 +1,4 @@
 import AskedQue from "../components/AskedQue";
-import Footer from "../components/Footer";
 import HomeFeatures from "../components/HomeFeatures";
 import HomeSection01 from "../components/HomeSection01";
 import { homeData } from "../data/homeData";
@@ -19,7 +18,6 @@ const Home = () => {
         : ""}
       <AskedQue />
       <hr />
-      <Footer />
     </div>
   );
 };

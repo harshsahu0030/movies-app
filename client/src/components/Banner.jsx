@@ -13,7 +13,6 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const Banner = ({ data }) => {
-  console.log(data);
   return (
     <Swiper
       spaceBetween={30}

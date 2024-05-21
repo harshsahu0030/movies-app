@@ -1,7 +1,12 @@
 const LoaderComponent = () => {
   return (
     <div className="loader_component">
-      <div></div>
+      <div className="image"></div>
+      <div className="content">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   );
 };

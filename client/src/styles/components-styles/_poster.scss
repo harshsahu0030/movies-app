@@ -1,0 +1,79 @@
+.poster_section {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  > img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    object-position: center;
+  }
+
+  > .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0)
+    );
+
+    > .info {
+      height: 100%;
+      width: 50%;
+      padding-left: 1vmax;
+      @include flex(column, center, start, 2vmax);
+
+      > .title {
+        @include flex(column, center, start, 0);
+
+        > h4 {
+          font-size: 1.2rem;
+          font-weight: 500;
+          text-transform: capitalize;
+        }
+
+        > h2 {
+          font-size: 2.5rem;
+          font-weight: 700;
+        }
+
+        > p {
+          font-size: 1rem;
+          font-weight: 600;
+        }
+      }
+
+      > p {
+        overflow: hidden;
+        font-size: 0.9rem;
+      }
+
+      > .genres {
+        @include flex(row, center, start, 1vmax);
+        font-size: 0.9rem;
+      }
+
+      > .buttons {
+        width: 50%;
+        @include flex(row, start, start, 1vmax);
+
+        > button {
+          width: 100%;
+          @include button(1.2rem, 0.5vmax, 1vmax, 0.5vmax);
+          text-wrap: nowrap;
+        }
+
+        > button:nth-child(2) {
+          background-color: $bg-gray-color;
+          color: $text-white-color;
+        }
+      }
+    }
+  }
+}

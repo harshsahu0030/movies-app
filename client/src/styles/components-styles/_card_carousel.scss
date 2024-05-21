@@ -1,0 +1,41 @@
+.card_carousel_section {
+  height: 100%;
+  width: 100%;
+
+  > h3 {
+    width: fit-content;
+    font-size: 1.3rem;
+    font-weight: 600;
+    @include flex(row, start, center, 0.5vmax);
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    padding: 1vmax 0;
+
+    &:hover {
+      color: $text-red-color;
+    }
+  }
+
+  .swiper {
+    height: 100%;
+    width: 100%;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: $text-white-color;
+  }
+
+  .swiper-button-next.swiper-button-disabled,
+  .swiper-button-prev.swiper-button-disabled {
+    opacity: 0;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    height: 100%;
+    width: 100%;
+    padding: 5vmax 1vmax;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

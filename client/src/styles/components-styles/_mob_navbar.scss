@@ -1,0 +1,28 @@
+.mob_navbar_section {
+  width: 100%;
+  height: 8vh;
+  display: none;
+  @include flex(row, space-between, center);
+  color: $text-white-color;
+  padding: 0 1vmax;
+
+  > img {
+    height: 100%;
+    object-fit: contain;
+  }
+
+  > svg {
+    font-size: 2rem;
+  }
+}
+
+//tablet ------------------
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+}
+
+//mobile ------------------
+@media (max-width: 800px) {
+  .mob_navbar_section {
+    display: flex;
+  }
+}

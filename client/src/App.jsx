@@ -6,6 +6,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { loadUserAction } from "./app/actions/userAction";
+import Footer from "./components/Footer";
+import Details from "./pages/Details";
+import ChangePassword from "./pages/ChangePassword";
 
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
@@ -66,12 +69,17 @@ const App = () => {
           {/* main */}
           <Route path="/home" element={<Main />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/account" element={<Account />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/series" element={<Series />} />
           <Route path="/wishlist" element={<Wishlish />} />
+          <Route path="/detail/:type/:id" element={<Details />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/account/change-password" element={<ChangePassword />} />
         </Routes>
       </Suspense>
+      <footer>
+        <Footer />
+      </footer>
     </BrowserRouter>
   );
 };

@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import HomeNavbar from "../components/HomeNavbar";
 import BgImage from "../assets/IN-en-20240429-popsignuptwoweeks-perspective_alpha_website_large.jpg";
 import { Link, useNavigate } from "react-router-dom";
@@ -84,7 +83,6 @@ const LoginCode = () => {
             </p>
           </form>
         </div>
-        <Footer />
       </div>
     </>
   );

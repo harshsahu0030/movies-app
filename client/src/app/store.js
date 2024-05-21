@@ -1,8 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { resendOTPReducer, userReducer } from "./reducers/userReducer";
 import { allTrendingReducer } from "./reducers/allReducer";
-import { moviesTrendingReducer } from "./reducers/moviesReducer";
-import { seriesTrendingReducer } from "./reducers/seriesReducer";
+import {
+  movieDetailsReducer,
+  moviesPopularReducer,
+  moviesTrendingReducer,
+  moviesUpcomingReducer,
+} from "./reducers/moviesReducer";
+import {
+  seriesDetailsReducer,
+  seriesPopularReducer,
+  seriesTrendingReducer,
+  seriesUpcomingReducer,
+} from "./reducers/seriesReducer";
 
 export const store = configureStore({
   reducer: {
@@ -15,8 +25,14 @@ export const store = configureStore({
 
     //movies
     moviesTrending: moviesTrendingReducer,
+    moviesUpcoming: moviesUpcomingReducer,
+    moviesPopular: moviesPopularReducer,
+    movieDetails: movieDetailsReducer,
 
     //series
     seriesTrending: seriesTrendingReducer,
+    seriesUpcoming: seriesUpcomingReducer,
+    seriesPopular: seriesPopularReducer,
+    seriesDetails: seriesDetailsReducer,
   },
 });

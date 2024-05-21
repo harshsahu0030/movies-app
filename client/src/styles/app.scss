@@ -18,6 +18,7 @@
 @import "./pages-styles/movies";
 @import "./pages-styles/series";
 @import "./pages-styles/wishlist";
+@import "./pages-styles/details";
 
 //components
 @import "./components-styles/home_section01";
@@ -31,6 +32,11 @@
 @import "./components-styles/sidebar";
 @import "./components-styles/banner";
 @import "./components-styles/loader_cmponent";
+@import "./components-styles/card_carousel";
+@import "./components-styles/card";
+@import "./components-styles/poster";
+@import "./components-styles/information";
+@import "./components-styles/mob_navbar";
 
 //media query
 
@@ -59,6 +65,12 @@ body {
 
 a {
   color: inherit;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid $bg-gray-color;
+  margin: 2vmax 0;
 }
 
 .input {

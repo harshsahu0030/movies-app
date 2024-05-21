@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import HomeNavbar from "../components/HomeNavbar";
 import BgImage from "../assets/IN-en-20240429-popsignuptwoweeks-perspective_alpha_website_large.jpg";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
@@ -129,7 +128,6 @@ const ResetPassword = () => {
             </p>
           </form>
         </div>
-        <Footer />
       </div>
     </>
   );
