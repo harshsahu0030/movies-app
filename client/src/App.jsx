@@ -1,14 +1,16 @@
 import "./styles/app.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useLayoutEffect } from "react";
 import Loader from "./components/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadUserAction } from "./app/actions/userAction";
 import Footer from "./components/Footer";
 import Details from "./pages/Details";
 import ChangePassword from "./pages/ChangePassword";
+import PageNotFound from "./pages/PageNotFound";
+import PrivateRoutes from "./utils/PrivateRoutes";
 
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
@@ -27,9 +29,10 @@ const Wishlish = lazy(() => import("./pages/Wishlish"));
 const App = () => {
   //redux
   const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.user);
 
   //useEffect
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(loadUserAction());
   }, [dispatch]);
 
@@ -67,14 +70,28 @@ const App = () => {
           <Route path="/password/reset/:id" element={<ResetPassword />} />
 
           {/* main */}
-          <Route path="/home" element={<Main />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/series" element={<Series />} />
-          <Route path="/wishlist" element={<Wishlish />} />
-          <Route path="/detail/:type/:id" element={<Details />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/account/change-password" element={<ChangePassword />} />
+          {isAuthenticated ? (
+            <Route
+              element={<PrivateRoutes isAuthenticated={isAuthenticated} />}
+            >
+              <Route path="/home" element={<Main />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/movies" element={<Movies />} />
+              <Route path="/series" element={<Series />} />
+              <Route path="/wishlist" element={<Wishlish />} />
+              <Route path="/detail/:type/:id" element={<Details />} />
+              <Route path="/account" element={<Account />} />
+              <Route
+                path="/account/change-password"
+                element={<ChangePassword />}
+              />
+            </Route>
+          ) : (
+            ""
+          )}
+
+          {/* page not found */}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Suspense>
       <footer>

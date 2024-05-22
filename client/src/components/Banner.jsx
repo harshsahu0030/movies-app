@@ -11,8 +11,11 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
-const Banner = ({ data }) => {
+const Banner = ({ data, type }) => {
+  const navigate = useNavigate();
   return (
     <Swiper
       spaceBetween={30}
@@ -46,10 +49,29 @@ const Banner = ({ data }) => {
                     <p>{item.overview}</p>
 
                     <div className="buttons">
-                      <button>
+                      <button
+                        onClick={() =>
+                          toast.error("This feature is not added yet")
+                        }
+                      >
                         <IoPlay /> Play
                       </button>
-                      <button>More Info</button>
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/detail/${
+                              item.media_type ? item.media_type : type
+                            }/${item.id}`,
+                            {
+                              state: {
+                                type: item.media_type ? item.media_type : type,
+                              },
+                            }
+                          )
+                        }
+                      >
+                        More Info
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -63,6 +85,7 @@ const Banner = ({ data }) => {
 
 Banner.propTypes = {
   data: propTypes.array,
+  type: propTypes.string,
 };
 
 export default Banner;

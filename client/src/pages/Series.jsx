@@ -33,7 +33,11 @@ const Series = () => {
         </div>
         <div className="right">
           <div className="section_a">
-            {loading ? <LoaderComponent /> : <Banner data={data} />}
+            {loading ? (
+              <LoaderComponent />
+            ) : (
+              <Banner data={data} type="movie" />
+            )}
           </div>
           <div className="section_b">
             <CardsCarousel

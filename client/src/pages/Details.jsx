@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Poster from "../components/Poster";
 import Sidebar from "../components/Sidebar";
-import { useMemo } from "react";
+import { useEffect } from "react";
 import { moviesDetailsAction } from "../app/actions/moviesAction";
 import { useParams } from "react-router-dom";
 import { seriesDetailsAction } from "../app/actions/seriesAction";
@@ -21,8 +21,8 @@ const Details = () => {
     (state) => state.seriesDetails
   );
 
-  //useMemo
-  useMemo(() => {
+  //useEffect
+  useEffect(() => {
     if (type) {
       if (type === "movie") {
         dispatch(moviesDetailsAction(id, type));

@@ -2,10 +2,42 @@ import { FiArrowUpRight } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
 import MobNavbar from "../components/MobNavbar";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUserAction } from "../app/actions/userAction";
+import { useEffect } from "react";
+import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
+import { toast } from "react-toastify";
+import Loader from "../components/Loader";
 
 const Account = () => {
   const navigate = useNavigate();
-  return (
+
+  //redux
+  const dispatch = useDispatch();
+  const { loading, error, message } = useSelector((state) => state.user);
+
+  //function
+  const handleLogout = async () => {
+    await dispatch(logoutUserAction());
+    await navigate("/");
+  };
+
+  //useEffect
+  useEffect(() => {
+    if (message) {
+      toast.success(message);
+      dispatch({ type: CLEAR_MESSAGES });
+      navigate(`/`);
+    }
+    if (error) {
+      toast.error(error);
+      dispatch({ type: CLEAR_ERRORS });
+    }
+  }, [dispatch, message, error, navigate]);
+
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="search_section">
       <MobNavbar />
       <div className="wrapper">
@@ -35,7 +67,7 @@ const Account = () => {
               <FiArrowUpRight />
               <span>Know us more</span>
             </div>
-            <div className="search_links">
+            <div className="search_links" onClick={handleLogout}>
               <FiArrowUpRight />
               <span>Logout</span>
             </div>
