@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Banner from "../components/Banner";
 import Sidebar from "../components/Sidebar";
-import { useMemo } from "react";
+import { useEffect } from "react";
 import {
   moviesPopularAction,
   moviesTrendingAction,
@@ -9,6 +9,7 @@ import {
 } from "../app/actions/moviesAction";
 import LoaderComponent from "../components/LoaderComponent";
 import CardsCarousel from "../components/CardsCarousel";
+import MobNavbar from "../components/MobNavbar";
 
 const Movies = () => {
   // redux
@@ -17,13 +18,15 @@ const Movies = () => {
   const { data: UpMovies } = useSelector((state) => state.moviesUpcoming);
   const { data: PopMovies } = useSelector((state) => state.moviesPopular);
 
-  useMemo(() => {
+  useEffect(() => {
     dispatch(moviesTrendingAction());
     dispatch(moviesUpcomingAction());
     dispatch(moviesPopularAction());
   }, [dispatch]);
   return (
     <div className="main_section">
+      <MobNavbar />
+
       <div className="wrapper">
         <div className="left">
           <Sidebar />

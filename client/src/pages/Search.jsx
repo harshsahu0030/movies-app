@@ -1,9 +1,12 @@
+import MobNavbar from "../components/MobNavbar";
 import Sidebar from "../components/Sidebar";
 import { FiArrowUpRight } from "react-icons/fi";
 
 const Search = () => {
   return (
     <div className="search_section">
+      <MobNavbar />
+
       <div className="wrapper">
         <div className="left">
           <Sidebar />

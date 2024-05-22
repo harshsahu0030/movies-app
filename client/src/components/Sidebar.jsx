@@ -1,18 +1,16 @@
+import React from "react";
 import Logo from "../assets/logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { sidebarData } from "../data/sidebar";
-import React, { useRef } from "react";
 import { IoClose } from "react-icons/io5";
+import propTypes from "prop-types";
 
-const Sidebar = () => {
+const Sidebar = ({ toggleRef, handleToggle }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  //ref
-  const toggleRef = useRef();
-
   return (
-    <div className="sidebar_section">
+    <div className="sidebar_section" ref={toggleRef}>
       <div className="left">
         <img src={Logo} alt="logo" onClick={() => navigate("/home")} />
 
@@ -34,11 +32,15 @@ const Sidebar = () => {
             : ""}
         </ul>
       </div>
-      <div className="right">
+      <div className="right" onClick={handleToggle}>
         <IoClose />
       </div>
     </div>
   );
+};
+Sidebar.propTypes = {
+  toggleRef: propTypes.object,
+  handleToggle: propTypes.func,
 };
 
 export default Sidebar;

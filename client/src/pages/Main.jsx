@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Banner from "../components/Banner";
 import Sidebar from "../components/Sidebar";
-import { useMemo } from "react";
+import { useEffect } from "react";
 import { allTrendingAction } from "../app/actions/allAction";
 import LoaderComponent from "../components/LoaderComponent";
 import CardsCarousel from "../components/CardsCarousel";
@@ -16,7 +16,7 @@ const Main = () => {
   const { data: UpMovies } = useSelector((state) => state.moviesUpcoming);
   const { data: UpSeries } = useSelector((state) => state.seriesUpcoming);
 
-  useMemo(() => {
+  useEffect(() => {
     dispatch(allTrendingAction());
     dispatch(moviesUpcomingAction());
     dispatch(seriesUpcomingAction());

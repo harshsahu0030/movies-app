@@ -42,3 +42,19 @@
     }
   }
 }
+
+//tablet ------------------
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+}
+
+//mobile ------------------
+@media (max-width: 800px) {
+  .information_section {
+    > .wrapper {
+      height: 100%;
+      width: 100%;
+      @include grid(1fr, 1fr, 4vmax);
+      padding: 0 2vmax;
+    }
+  }
+}

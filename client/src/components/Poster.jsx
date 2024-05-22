@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 const Poster = ({ data }) => {
   const { type } = useParams();
-  console.log(data);
   return (
     data && (
       <div className="poster_section">

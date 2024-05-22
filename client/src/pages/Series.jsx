@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect } from "react";
 import Banner from "../components/Banner";
 import Sidebar from "../components/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import {
 } from "../app/actions/seriesAction";
 import LoaderComponent from "../components/LoaderComponent";
 import CardsCarousel from "../components/CardsCarousel";
+import MobNavbar from "../components/MobNavbar";
 
 const Series = () => {
   // redux
@@ -17,13 +18,15 @@ const Series = () => {
   const { data: UpSeries } = useSelector((state) => state.seriesUpcoming);
   const { data: PopSeries } = useSelector((state) => state.seriesPopular);
 
-  useMemo(() => {
+  useEffect(() => {
     dispatch(seriesTrendingAction());
     dispatch(seriesUpcomingAction());
     dispatch(seriesPopularAction());
   }, [dispatch]);
   return (
     <div className="main_section">
+      <MobNavbar />
+
       <div className="wrapper">
         <div className="left">
           <Sidebar />

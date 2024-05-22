@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import Sidebar from "../components/Sidebar";
+import MobNavbar from "../components/MobNavbar";
 
 const ChangePassword = () => {
   //states
@@ -46,6 +47,7 @@ const ChangePassword = () => {
       await validationSchema.validate(resetPasswordForm, { abortEarly: false });
 
       if (location.state.role === "resetPasswordVerified") {
+        toast.error("Feature not added");
       } else {
         toast.error("Unauthorized");
       }
@@ -62,6 +64,7 @@ const ChangePassword = () => {
 
   return (
     <div className="main_section">
+      <MobNavbar />
       <div className="wrapper">
         <div className="left">
           <Sidebar />

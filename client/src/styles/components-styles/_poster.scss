@@ -77,3 +77,44 @@
     }
   }
 }
+
+//tablet ------------------
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+}
+
+//mobile ------------------
+@media (max-width: 800px) {
+  .poster_section {
+    > .overlay {
+      > .info {
+        width: 90%;
+
+        > .title {
+          > h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+          }
+
+          > h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+          }
+
+          > p {
+            font-size: 0.9rem;
+            font-weight: 600;
+          }
+        }
+
+        > .buttons {
+          width: 70%;
+
+          > button {
+            @include button(0.9rem, 0.5vmax, 1vmax, 0.5vmax);
+          }
+        }
+      }
+    }
+  }
+}

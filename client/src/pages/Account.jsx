@@ -1,11 +1,13 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
+import MobNavbar from "../components/MobNavbar";
 
 const Account = () => {
   const navigate = useNavigate();
   return (
     <div className="search_section">
+      <MobNavbar />
       <div className="wrapper">
         <div className="left">
           <Sidebar />

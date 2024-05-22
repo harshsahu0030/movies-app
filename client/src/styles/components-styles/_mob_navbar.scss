@@ -16,8 +16,18 @@
   }
 }
 
+//desktop ------------------
+@media (min-width: 1024px) {
+  .mob_navbar_section {
+    display: none;
+  }
+}
+
 //tablet ------------------
 @media only screen and (min-width: 801px) and (max-width: 1024px) {
+  .mob_navbar_section {
+    display: none;
+  }
 }
 
 //mobile ------------------

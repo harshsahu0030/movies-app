@@ -3,14 +3,15 @@ import Poster from "../components/Poster";
 import Sidebar from "../components/Sidebar";
 import { useMemo } from "react";
 import { moviesDetailsAction } from "../app/actions/moviesAction";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { seriesDetailsAction } from "../app/actions/seriesAction";
 import Information from "../components/Information";
 import LoaderComponent from "../components/LoaderComponent";
+import MobNavbar from "../components/MobNavbar";
 
 const Details = () => {
   const { type, id } = useParams();
-  const location = useLocation();
+
   //redux
   const dispatch = useDispatch();
   const { data: movieDt, loading: movieLd } = useSelector(
@@ -33,6 +34,7 @@ const Details = () => {
 
   return (
     <div className="main_section">
+      <MobNavbar />
       <div className="wrapper">
         <div className="left">
           <Sidebar />

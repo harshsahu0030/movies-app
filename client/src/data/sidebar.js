@@ -1,4 +1,4 @@
-import { LuSearch, LuHome, LuCalendarDays, LuUser2 } from "react-icons/lu";
+import { LuSearch, LuHome, LuUser2 } from "react-icons/lu";
 import { PiTelevisionDuotone } from "react-icons/pi";
 import { RiAddLargeLine } from "react-icons/ri";
 import { PiFilmSlateDuotone } from "react-icons/pi";
@@ -30,11 +30,7 @@ export const sidebarData = {
       icon: RiAddLargeLine,
       url: "/wishlist",
     },
-    // {
-    //   name: "",
-    //   icon: LuCalendarDays,
-    //   url: "/",
-    // },
+
     {
       name: "account",
       icon: LuUser2,

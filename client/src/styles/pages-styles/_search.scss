@@ -118,8 +118,12 @@
 @media (max-width: 800px) {
   .search_section {
     > .wrapper {
+      > .left {
+        width: 0;
+      }
       > .right {
         @include grid(1fr, 1fr, 1vmax);
+        width: 100%;
       }
     }
   }
