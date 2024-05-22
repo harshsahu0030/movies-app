@@ -26,13 +26,13 @@ const Poster = ({ data }) => {
 
               <div className="genres">
                 {data.genres.map((item, i) => (
-                  <div key={i}>
+                  <div key={item.id}>
                     {data.genres.length - 1 > i ? (
                       <>
-                        <span key={item.id}>{item.name}</span> |
+                        <span>{item.name}</span> |
                       </>
                     ) : (
-                      <span key={item.id}>{item.name}</span>
+                      <span>{item.name}</span>
                     )}
                   </div>
                 ))}

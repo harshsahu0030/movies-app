@@ -56,49 +56,53 @@ const Information = ({ data }) => {
                 {data.spoken_languages && (
                   <tr>
                     <td className="label">Languages :</td>
-                    {data.spoken_languages.map((item, i) => (
-                      <td className="value" key={i}>
-                        {data.spoken_languages.length - 1 > i ? (
-                          <>
-                            <span key={item.id}>{item.name}</span>,
-                          </>
-                        ) : (
-                          <span key={item.id}>{item.name}</span>
-                        )}
-                      </td>
-                    ))}
+                    <td className="value">
+                      {data.spoken_languages.map((item, i) => (
+                        <span key={item.id}>
+                          {data.spoken_languages.length - 1 > i ? (
+                            <>{item.name},&nbsp;</>
+                          ) : (
+                            <>{item.name}</>
+                          )}
+                        </span>
+                      ))}
+                    </td>
                   </tr>
                 )}
                 {data.production_companies && (
                   <tr>
                     <td className="label">Production Companies :</td>
-                    {data.production_companies.map((item, i) => (
-                      <td className="value" key={i}>
-                        {data.production_companies.length - 1 > i ? (
-                          <>
-                            <span key={item.id}> {item.name}</span>,
-                          </>
-                        ) : (
-                          <span key={item.id}> {item.name}</span>
-                        )}
-                      </td>
-                    ))}
+                    <td className="value">
+                      {data.production_companies.map((item, i) => (
+                        <span key={item.id}>
+                          {data.production_companies.length - 1 > i ? (
+                            <>
+                              <>{item.name}</>,&nbsp;
+                            </>
+                          ) : (
+                            <>{item.name}</>
+                          )}
+                        </span>
+                      ))}
+                    </td>
                   </tr>
                 )}
                 {data.production_countries && (
                   <tr>
                     <td className="label">Production Countries :</td>
-                    {data.production_countries.map((item, i) => (
-                      <td className="value" key={i}>
-                        {data.production_countries.length - 1 > i ? (
-                          <>
-                            <span key={item.id}> {item.name}</span>,
-                          </>
-                        ) : (
-                          <span key={item.id}> {item.name}</span>
-                        )}
-                      </td>
-                    ))}
+                    <td className="value">
+                      {data.production_countries.map((item, i) => (
+                        <span key={item.id}>
+                          {data.production_countries.length - 1 > i ? (
+                            <>
+                              <>{item.name}</>,&nbsp;
+                            </>
+                          ) : (
+                            <> {item.name}</>
+                          )}
+                        </span>
+                      ))}
+                    </td>
                   </tr>
                 )}
                 {data.seasons && (

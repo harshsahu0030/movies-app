@@ -12,8 +12,9 @@ import { Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import LoaderComponent from "./LoaderComponent";
 import Card from "./Card";
+import { toast } from "react-toastify";
 
-const CardsCarousel = ({ data, title, url, type }) => {
+const CardsCarousel = ({ data, title, type }) => {
   //state
   const [inWidth, setInWidth] = useState(window.innerWidth);
 
@@ -28,7 +29,7 @@ const CardsCarousel = ({ data, title, url, type }) => {
   }, []);
   return (
     <div className="card_carousel_section">
-      <h3>
+      <h3 onClick={() => toast.error("This feature is not added yet")}>
         {title} <MdOutlineArrowForwardIos />
       </h3>
       <Swiper

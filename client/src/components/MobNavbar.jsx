@@ -2,7 +2,7 @@ import { IoMenu } from "react-icons/io5";
 import Logo from "../assets/Netflix_Logo_PMS.png";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const MobNavbar = () => {
   const navigate = useNavigate();
