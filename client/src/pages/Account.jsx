@@ -27,7 +27,6 @@ const Account = () => {
     if (message) {
       toast.success(message);
       dispatch({ type: CLEAR_MESSAGES });
-      navigate(`/`);
     }
     if (error) {
       toast.error(error);

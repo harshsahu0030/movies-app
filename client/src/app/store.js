@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { resendOTPReducer, userReducer } from "./reducers/userReducer";
-import { allTrendingReducer } from "./reducers/allReducer";
+import { allSearchReducer, allTrendingReducer } from "./reducers/allReducer";
 import {
   movieDetailsReducer,
   moviesPopularReducer,
@@ -22,6 +22,7 @@ export const store = configureStore({
 
     //all
     allTrending: allTrendingReducer,
+    allSearch: allSearchReducer,
 
     //movies
     moviesTrending: moviesTrendingReducer,
