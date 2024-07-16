@@ -7,6 +7,7 @@ import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import { loginUserCodeAction } from "../app/actions/userAction";
+import { Helmet } from "react-helmet";
 
 const LoginCode = () => {
   const navigate = useNavigate();
@@ -51,6 +52,9 @@ const LoginCode = () => {
     <>
       {loading ? <Loader /> : ""}
       <div className="login_code_section">
+        <Helmet>
+          <title>Nextflix | Login Code</title>
+        </Helmet>
         <img src={BgImage} alt="backgorund-image" />
         <div className="wrapper">
           <HomeNavbar />

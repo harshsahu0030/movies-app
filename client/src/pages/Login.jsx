@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
 import Loader from "../components/Loader";
 import { loginUserAction } from "../app/actions/userAction";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -77,6 +78,9 @@ const Login = () => {
     <>
       {loading ? <Loader /> : ""}
       <div className="login_section">
+        <Helmet>
+          <title>Nextflix | Login</title>
+        </Helmet>
         <img src={BgImage} alt="backgorund-image" />
         <div className="wrapper">
           <HomeNavbar />

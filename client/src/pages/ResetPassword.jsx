@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
 import Loader from "../components/Loader";
 import { resetPasswordAction } from "../app/actions/userAction";
+import { Helmet } from "react-helmet";
 
 const ResetPassword = () => {
   const location = useLocation();
@@ -91,6 +92,9 @@ const ResetPassword = () => {
     <>
       {loading ? <Loader /> : ""}
       <div className="forgot_password_section">
+        <Helmet>
+          <title>Nextflix | Reset Password</title>
+        </Helmet>
         <img src={BgImage} alt="backgorund-image" />
         <div className="wrapper">
           <HomeNavbar />

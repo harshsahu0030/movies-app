@@ -9,6 +9,7 @@ import { registerUserAction } from "../app/actions/userAction";
 import { toast } from "react-toastify";
 import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
 import Loader from "../components/Loader";
+import { Helmet } from "react-helmet";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -104,6 +105,9 @@ const Signup = () => {
     <>
       {loading ? <Loader /> : ""}
       <div className="signup_section">
+        <Helmet>
+          <title>Nextflix | Signup</title>
+        </Helmet>
         <img src={BgImage} alt="backgorund-image" />
 
         <div className="wrapper">

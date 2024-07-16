@@ -10,6 +10,7 @@ import {
 import LoaderComponent from "../components/LoaderComponent";
 import CardsCarousel from "../components/CardsCarousel";
 import MobNavbar from "../components/MobNavbar";
+import { Helmet } from "react-helmet";
 
 const Series = () => {
   // redux
@@ -25,6 +26,9 @@ const Series = () => {
   }, [dispatch]);
   return (
     <div className="main_section">
+      <Helmet>
+        <title>Nextflix | Searies</title>
+      </Helmet>
       <MobNavbar />
 
       <div className="wrapper">

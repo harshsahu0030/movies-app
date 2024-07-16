@@ -8,6 +8,7 @@ import { seriesDetailsAction } from "../app/actions/seriesAction";
 import Information from "../components/Information";
 import LoaderComponent from "../components/LoaderComponent";
 import MobNavbar from "../components/MobNavbar";
+import { Helmet } from "react-helmet";
 
 const Details = () => {
   const { type, id } = useParams();
@@ -34,6 +35,12 @@ const Details = () => {
 
   return (
     <div className="main_section">
+      <Helmet>
+        <title>
+          Nextflix |
+          {movieDt.original_title ? movieDt.original_title : movieDt.name}
+        </title>
+      </Helmet>
       <MobNavbar />
       <div className="wrapper">
         <div className="left">

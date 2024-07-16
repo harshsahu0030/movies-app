@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import AskedQue from "../components/AskedQue";
 import HomeFeatures from "../components/HomeFeatures";
 import HomeSection01 from "../components/HomeSection01";
@@ -6,6 +7,9 @@ import { homeData } from "../data/homeData";
 const Home = () => {
   return (
     <div className="home-section">
+      <Helmet>
+        <title>Nextflix</title>
+      </Helmet>
       <HomeSection01 />
       <hr />
       {homeData && homeData.features

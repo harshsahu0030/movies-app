@@ -8,6 +8,7 @@ import CardsCarousel from "../components/CardsCarousel";
 import { moviesUpcomingAction } from "../app/actions/moviesAction";
 import { seriesUpcomingAction } from "../app/actions/seriesAction";
 import MobNavbar from "../components/MobNavbar";
+import { Helmet } from "react-helmet";
 
 const Main = () => {
   //redux
@@ -24,6 +25,9 @@ const Main = () => {
 
   return (
     <div className="main_section">
+      <Helmet>
+        <title>Nextflix | Home</title>
+      </Helmet>
       <MobNavbar />
       <div className="wrapper">
         <div className="left">

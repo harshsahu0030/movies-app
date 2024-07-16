@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
+import { Helmet } from "react-helmet";
 
 const Account = () => {
   const navigate = useNavigate();
@@ -38,6 +39,9 @@ const Account = () => {
     <Loader />
   ) : (
     <div className="search_section">
+      <Helmet>
+        <title>Nextflix | Account</title>
+      </Helmet>
       <MobNavbar />
       <div className="wrapper">
         <div className="left">

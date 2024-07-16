@@ -14,6 +14,7 @@ import {
 import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
+import { Helmet } from "react-helmet";
 
 const OptVerification = () => {
   const navigate = useNavigate();
@@ -107,6 +108,9 @@ const OptVerification = () => {
     <>
       {loading || otpLoading ? <Loader /> : ""}
       <div className="login_code_section">
+        <Helmet>
+          <title>Nextflix | Otp Verification</title>
+        </Helmet>
         <img src={BgImage} alt="backgorund-image" />
         <div className="wrapper">
           <HomeNavbar />

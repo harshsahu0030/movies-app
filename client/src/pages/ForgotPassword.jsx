@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
 import { forgotPasswordAction } from "../app/actions/userAction";
 import Loader from "../components/Loader";
+import { Helmet } from "react-helmet";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -44,6 +45,9 @@ const ForgotPassword = () => {
     <>
       {loading ? <Loader /> : ""}
       <div className="forgot_password_section">
+        <Helmet>
+          <title>Nextflix | Forgot Password</title>
+        </Helmet>
         <img src={BgImage} alt="backgorund-image" />
         <div className="wrapper">
           <HomeNavbar />

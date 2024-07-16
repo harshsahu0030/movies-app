@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 import Sidebar from "../components/Sidebar";
 import MobNavbar from "../components/MobNavbar";
+import { Helmet } from "react-helmet";
 
 const ChangePassword = () => {
   //states
@@ -64,6 +65,9 @@ const ChangePassword = () => {
 
   return (
     <div className="main_section">
+      <Helmet>
+        <title>Nextflix | Change Password</title>
+      </Helmet>
       <MobNavbar />
       <div className="wrapper">
         <div className="left">

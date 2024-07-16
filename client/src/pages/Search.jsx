@@ -9,6 +9,8 @@ import { useDebounce } from "../utils/useDebounce";
 import { allSearchAction, allTrendingAction } from "../app/actions/allAction";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
+import { Helmet } from "react-helmet";
+import Loader from "../components/Loader";
 
 const Search = () => {
   const navigate = useNavigate();
@@ -42,6 +44,9 @@ const Search = () => {
 
   return (
     <div className="search_section">
+      <Helmet>
+        <title>Nextflix | Search</title>
+      </Helmet>
       <MobNavbar />
 
       <div className="wrapper">
@@ -87,9 +92,13 @@ const Search = () => {
           <div className="right">
             <h2>Recomandations</h2>
             <div className="wrapper">
-              {recData && recData.length > 0
-                ? recData.map((item, i) => <Card key={i} data={item} />)
-                : "Not Found"}
+              {recLoading ? (
+                <Loader />
+              ) : recData && recData.length > 0 ? (
+                recData.map((item, i) => <Card key={i} data={item} />)
+              ) : (
+                "Not Found"
+              )}
             </div>
           </div>
         </div>
