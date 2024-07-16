@@ -36,10 +36,7 @@ const Details = () => {
   return (
     <div className="main_section">
       <Helmet>
-        <title>
-          Nextflix |
-          {movieDt.original_title ? movieDt.original_title : movieDt.name}
-        </title>
+        <title>Nextflix | {id}</title>
       </Helmet>
       <MobNavbar />
       <div className="wrapper">
